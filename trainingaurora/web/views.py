@@ -2,7 +2,10 @@ from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.response import Response
 from .models import City , Tour 
-from .serializers import Cityserializer , Tourserialzier , TourSerializerPost
+from .serializers import Cityserializer , Tourserialzier 
+
+
+#from .serializers import TourSerializerPost
 # Create your views here.
 
 
@@ -19,15 +22,23 @@ class Cityviewset(viewsets.ModelViewSet):
 
 
 class Tourviewset(viewsets.ModelViewSet):
-
     queryset = Tour.objects.all()
+    serializer_class = Tourserialzier
 
-    def get_serializer_class(self):
-        if self.request.method == 'POST':
-            self.serializer_class = TourSerializerPost
-        if self.request.method == 'GET':
-            self.serializer_class = Tourserialzier
-        return self.serializer_class 
+    def createtour(self ,request):
+        if request.method == 'POST':
+            serializer = TourSerializerPost(data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response({'alert': 'done'})
+            return Response({'alert' : 'ops!'}) 
+
+#    def get_serializer_class(self):
+#        if self.request.method == 'POST':
+#            self.serializer_class = TourSerializerPost
+#        if self.request.method == 'GET':
+#            self.serializer_class = Tourserialzier
+#        return self.serializer_class 
 
 
 #    def get_queryset(self):
