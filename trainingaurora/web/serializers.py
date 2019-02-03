@@ -41,7 +41,7 @@ class Tourserialzier(serializers.ModelSerializer):
 #        tour_data = validation_data.pop('destination')
 #       city_detail = City.object.get().filter(name=[{'destination': 'name'}])
 #        return Tour.objects.create(destination=city_detail , **validation_data)
-
+#
 class TourSerializerPost(serializers.ModelSerializer):
 
     
