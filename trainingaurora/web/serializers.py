@@ -37,11 +37,13 @@ class Tourserialzier(serializers.ModelSerializer):
         model = Tour
         fields = ('id' , 'name' , 'destination')
     
-    def create(self , validation_data):
-        tour_data = validation_data.pop('destination')
-        city_create = City.objects.create(**validation_data)
-        Tour.objects.create(destination=city_create , **validation_data)
-        return city_create
+    def create(self , validated_data):
+        #pay attention to the wright NAMINGs!
+        #we pop destination_data from the posted data in order to create the city objects first
+        destination_data = validated_data.pop('destination')
+        dest = City.objects.create(**destination_data)
+        tour = Tour.objects.create(destination =dest ,**validated_data)
+        return tour
 
 
 
