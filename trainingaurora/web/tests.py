@@ -26,6 +26,7 @@ class CityviewsetTestCase(TestCase):
         response = client.post(
             reverse('')
         )
+        
 
 
 
