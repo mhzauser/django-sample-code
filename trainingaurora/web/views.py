@@ -26,7 +26,7 @@ class Tourviewset(viewsets.ModelViewSet):
         # @mohandeath : you need to read more about modelviewset use actions instead of request methods in case of modelviewset!!
         if self.action == 'create':
             return TourSerializerPost
-        else if self.action == 'list': #put a goddamn ELSE otherwise all conditions may be executed!!
+        elif self.action == 'list': #put a goddamn ELSE otherwise all conditions may be executed!!
             return  Tourserialzier
         ## return self.serializer_class >> WHYY ???????
 
