@@ -42,10 +42,10 @@ class CityTestCase(TestCase):
 
     def setUp(self):
         City.objects.create(
-            name='mamadAbad' , population='1969'
+            name='mamadAbad' , population=1969
         )
         City.objects.create(
-            name='berlin' , population='43452300'
+            name='berlin' , population=43452300
         )
     
     def test_city_objects(self):
