@@ -26,9 +26,9 @@ class City(models.Model):
     name = models.CharField(
         max_length=500
         )
-    population = models.BigIntegerField(
+    population = models.IntegerField(
         
-        )
+    )
 
     def __str__(self):
         return self.name
