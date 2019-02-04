@@ -26,8 +26,8 @@ class Cityserializer(serializers.ModelSerializer):
         model = City
         fields = ('id' , 'name' , 'population')
 
-
-class Tourserialzier(serializers.ModelSerializer):
+# @mohandeath : TourSerializer ! not Tourserializer (typo)
+class TourSerialzier(serializers.ModelSerializer):
     
     destination = Cityserializer(
         many=False,
@@ -37,11 +37,20 @@ class Tourserialzier(serializers.ModelSerializer):
         model = Tour
         fields = ('id' , 'name' , 'destination')
     
-#    def create(self , validation_data):
-#        tour_data = validation_data.pop('destination')
-#       city_detail = City.object.get().filter(name=[{'destination': 'name'}])
-#        return Tour.objects.create(destination=city_detail , **validation_data)
-
+    def create(self , validated_data):
+        #pay attention to the wright NAMINGs!
+        #we pop destination_data from the posted data in order to create the city objects first
+        destination_data = validated_data.pop('destination')
+        dest = City.objects.create(**destination_data)
+        tour = Tour.objects.create(destination =dest ,**validated_data)
+        return tour
+        
+        
+        
+        
+        
+        
+        
 class TourSerializerPost(serializers.ModelSerializer):
 
     
