@@ -31,8 +31,31 @@ class CityviewsetTestCase(TestCase):
 
 class TourviewsetTestCase(TestCase):
 
+    def setUp(self):
+        cityone = City.objecs.create(
+            name = 'cityonefortourtest' , population=1212121
+            )
+        citytwo = City.objects.create(
+            name = 'citytwofortourtest' , population=9988999
+        )
+        Tour.objects.create(
+            name = 'touronetesting' , destination = cityone
+        )
+        Tour.objects.create(
+            name = 'tourtwotesting' , destination = citytwo
+        )
 
 
+    def test_tour_objects(self):
+        tour_one = Tour.objects.get(name='touronetesting')
+        tour_two = Tour.objects.get(name='tourtwotesting')
+
+        self.assertEqual(
+            tour_one.get_objects() , "tour_one ..."
+        )
+        self.assertEqual(
+            tour_two.get_objects() , "tour_two ..."
+        )
 
 
 
