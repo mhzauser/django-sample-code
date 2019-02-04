@@ -23,7 +23,9 @@ class CityviewsetTestCase(TestCase):
     }
 
     def test_create_valid_city(self):
-        
+        response = client.post(
+            reverse('')
+        )
 
 
 
