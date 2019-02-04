@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import City , Tour 
-
+import json
 
 
 #class Destserializer(serializers.RelatedField):
@@ -39,9 +39,9 @@ class Tourserialzier(serializers.ModelSerializer):
     
     def create(self , validation_data):
         tour_data = validation_data.pop('destination')
-        ppopulation = [{'destination' : 'population'}]
-        intpopulation = int(ppopulation)
-        city_detail = City.objects.create(name=[{'destination': 'name'}], population=intpopulation)
+        population_data = json.dumps([{'destination' : 'populations'}])
+        city_detail = City.objects.create(name=[{'destination': 'name'}] , population=population_data)
+        #, population=
         return Tour.objects.create(destination=city_detail , **validation_data)
 
 
