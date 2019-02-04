@@ -23,6 +23,7 @@ class Tourviewset(viewsets.ModelViewSet):
     queryset = Tour.objects.all()
     serializer_class = Tourserialzier
 
+
     def createtour(self ,request):
         if request.method == 'POST':
             serializer = TourSerializerPost(data=request.data)
