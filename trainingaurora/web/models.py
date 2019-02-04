@@ -27,7 +27,8 @@ class City(models.Model):
         max_length=500
         )
     population = models.BigIntegerField(
-        
+        blank=True, 
+        null=True
         )
 
     def get_objects(self):
