@@ -30,12 +30,17 @@ class City(models.Model):
         
         )
 
+    def get_objects(self):
+        return self.name + 'is created with' + self.population + 'population'
+
     def __str__(self):
         return self.name
 
     class Meta:
         verbose_name=_('city')
         verbose_name_plural=_('cities')
+    
+
 
 
 
@@ -57,6 +62,9 @@ class Tour(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_objects(self):
+        return self.name + 'created with' + str(self.destination)
 
     class Meta:
         verbose_name=_("tour")

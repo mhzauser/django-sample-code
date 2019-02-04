@@ -1,37 +1,27 @@
 import json
 from django.test import TestCase , Client
-from .models import City , Tour
-from .views import Tourviewset , Cityviewset
-from rest_framework import status
-from rest_framework.test import APIRequestFactory
+from ..models import City , Tour
 
-
-factor = APIRequestFactory()
-client = Client()
-
-
-
-#view test 
-class CityviewsetTestCase(TestCase):
     
 
 
 
-class TourviewsetTestCase(TestCase):
+class TourModelTestCase(TestCase):
 
     def setUp(self):
-        cityone = City.objecs.create(
+        cityone = City.objects.create(
             name = 'cityonefortourtest' , population=1212121
             )
         citytwo = City.objects.create(
             name = 'citytwofortourtest' , population=9988999
         )
-        Tour.objects.create(
+        self.tourone = Tour.objects.create(
             name = 'touronetesting' , destination = cityone
         )
-        Tour.objects.create(
+        self.tourtwo = Tour.objects.create(
             name = 'tourtwotesting' , destination = citytwo
         )
+
 
 
     def test_tour_objects(self):
@@ -39,17 +29,17 @@ class TourviewsetTestCase(TestCase):
         tour_two = Tour.objects.get(name='tourtwotesting')
 
         self.assertEqual(
-            tour_one.get_objects() , "tour_one ..."
+            tour_one.get_objects() , "tour touronetesting created ..."
         )
         self.assertEqual(
-            tour_two.get_objects() , "tour_two ..."
+            tour_two.get_objects() , "tour tourtwotesting created ..."
         )
 
 
 
 #model test 
 
-class CityTestCase(TestCase):
+class CityModelTestCase(TestCase):
 
     def setUp(self):
         City.objects.create(
@@ -64,11 +54,13 @@ class CityTestCase(TestCase):
         city_berlin = City.objects.get(name='berlin')
 
         self.assertEqual(
-            city_mamadAbad.get_objects() , "mamadAbad ..."
+            city_mamadAbad.get_objects() , "city mamamdabad created ..."
         )
         self.assertEqual(
-            city_berlin.get_objects() , "berlin ...."
+            city_berlin.get_objects() , "city berlin created..."
         )
+
+
 
 
 
