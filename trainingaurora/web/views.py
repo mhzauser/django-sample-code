@@ -17,8 +17,6 @@ class Cityviewset(viewsets.ModelViewSet):
     queryset = City.objects.all()
     serializer_class = Cityserializer
 
-    
-
 
 
 class Tourviewset(viewsets.ModelViewSet):

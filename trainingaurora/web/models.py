@@ -27,7 +27,8 @@ class City(models.Model):
         max_length=500
         )
     population = models.IntegerField(
-        blank=True, null=True
+        blank=True,
+        null=True
     )
 
     def __str__(self):
