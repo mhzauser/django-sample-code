@@ -3,8 +3,10 @@ from django.test import TestCase , Client
 from .models import City , Tour
 from .views import Tourviewset , Cityviewset
 from rest_framework import status
+from rest_framework.test import APIRequestFactory
 
 
+factor = APIRequestFactory()
 client = Client()
 
 
@@ -12,21 +14,6 @@ client = Client()
 #view test 
 class CityviewsetTestCase(TestCase):
     
-    self.valid_payload = {
-        'name' : 'berlin',
-        'population' : 1231532
-    }
-
-    self.valid_payload = {
-        'name' : 'rasht',
-        'population' : 95728385
-    }
-
-    def test_create_valid_city(self):
-        response = client.post(
-            reverse('')
-        )
-        
 
 
 

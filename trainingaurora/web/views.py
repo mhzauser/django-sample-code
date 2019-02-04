@@ -2,7 +2,8 @@ from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.response import Response
 from .models import City , Tour 
-from .serializers import Cityserializer , Tourserialzier , TourSerializerPost
+from .serializers import CitySerializer , TourSerialzier , TourSerializerPost
+#TourSerializerPost
 # Create your views here.
 
 
@@ -12,7 +13,7 @@ from .serializers import Cityserializer , Tourserialzier , TourSerializerPost
 
 class Cityviewset(viewsets.ModelViewSet):
     queryset = City.objects.all()
-    serializer_class = Cityserializer
+    serializer_class = CitySerializer
 
     
 
@@ -27,7 +28,7 @@ class Tourviewset(viewsets.ModelViewSet):
         if self.action == 'create':
             return TourSerializerPost
         elif self.action == 'list': #put a goddamn ELSE otherwise all conditions may be executed!!
-            return  Tourserialzier
+            return  TourSerialzier
         ## return self.serializer_class >> WHYY ???????
 
 

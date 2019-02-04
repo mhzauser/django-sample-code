@@ -20,7 +20,7 @@ from .models import City , Tour
 #        dest = Destination.objects.create(**validated_data)
 #        Cityserializer.objects.create(population=dest , **dest_data)
 
-class Cityserializer(serializers.ModelSerializer):
+class CitySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = City
@@ -29,7 +29,7 @@ class Cityserializer(serializers.ModelSerializer):
 # @mohandeath : TourSerializer ! not Tourserializer (typo)
 class TourSerialzier(serializers.ModelSerializer):
     
-    destination = Cityserializer(
+    destination = CitySerializer(
         many=False,
         )
 
