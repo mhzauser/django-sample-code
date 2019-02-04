@@ -39,9 +39,11 @@ class Tourserialzier(serializers.ModelSerializer):
     
     def create(self , validation_data):
         tour_data = validation_data.pop('destination')
-        city_detail = City.objects.create(name=[{'destination': 'name'}] , population=[{'destination' : 'population'}])
+        tour_create = Tour.objects.create(**validation_data)
+        City.objects.create(destination=tour_create , **validation_data)
+        #city_detail = City.objects.get_or_create(name=[{'destination': 'name'}] , population=[{'destination' : 'population'}])
         #, population=
-        return Tour.objects.create(destination=city_detail , **validation_data)
+        return tour_create
 
 
 
