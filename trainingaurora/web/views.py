@@ -23,11 +23,12 @@ class Tourviewset(viewsets.ModelViewSet):
     queryset = Tour.objects.all()
 
     def get_serializer_class(self):
-        if self.request.method == 'POST':
-            self.serializer_class = TourSerializerPost
-        if self.request.method == 'GET':
-            self.serializer_class = Tourserialzier
-        return self.serializer_class 
+        # @mohandeath : you need to read more about modelviewset use actions instead of request methods in case of modelviewset!!
+        if self.action == 'create':
+            return TourSerializerPost
+        else if self.action == 'list': #put a goddamn ELSE otherwise all conditions may be executed!!
+            return  Tourserialzier
+        ## return self.serializer_class >> WHYY ???????
 
 
 #    def get_queryset(self):
