@@ -49,7 +49,7 @@ class Tour(models.Model):
         City,
         verbose_name=_('destination'),
         help_text=_('desitnation tour to destination table'),
-        related_name='destination_goal', 
+        related_name='destination_goal', #naming for related_name is wrong, it should be sth like get_tours or sth
         on_delete=models.CASCADE,
         blank=True,
         null=True
