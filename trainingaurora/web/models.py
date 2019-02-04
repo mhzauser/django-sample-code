@@ -49,7 +49,7 @@ class Tour(models.Model):
         City,
         verbose_name=_('destination'),
         help_text=_('desitnation tour to destination table'),
-        related_name='destination_goal', 
+        related_name='destination_name', 
         on_delete=models.CASCADE,
         blank=True,
         null=True

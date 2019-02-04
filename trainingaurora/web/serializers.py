@@ -24,7 +24,7 @@ class Cityserializer(serializers.ModelSerializer):
 
     class Meta:
         model = City
-        fields = ('id' , 'name' , 'population')
+        fields = ('id' , 'name' , 'population' , 'destination_name')
 
 
 class Tourserialzier(serializers.ModelSerializer):
@@ -35,15 +35,13 @@ class Tourserialzier(serializers.ModelSerializer):
 
     class Meta:
         model = Tour
-        fields = ('id' , 'name' , 'destination')
+        fields = ('id' , 'name')
     
     def create(self , validation_data):
         tour_data = validation_data.pop('destination')
-        
-        tour_create = Tour.objects.create(
-            **validation_data
-            )
-        
+        intpopulation = int(tour_data['population'])
+        #city_create = City.objects.create(name=tour_data['name'] , population=intpopulation)
+
         City.objects.create(
             destination=tour_create,
             **validation_data
