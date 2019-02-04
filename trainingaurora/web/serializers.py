@@ -40,7 +40,7 @@ class Tourserialzier(serializers.ModelSerializer):
     def create(self , validation_data):
         tour_data = validation_data.pop('destination')
         city_create = City.objects.create(**validation_data)
-        Tour.objects.create(destinarion=city_create , **validation_data)
+        Tour.objects.create(destination=city_create , **validation_data)
         return city_create
 
 

@@ -27,7 +27,7 @@ class City(models.Model):
         max_length=500
         )
     population = models.IntegerField(
-        
+        blank=True, null=True
     )
 
     def __str__(self):
@@ -51,7 +51,7 @@ class Tour(models.Model):
         help_text=_('desitnation tour to destination table'),
         related_name='destination', 
         on_delete=models.CASCADE,
-        blank=True,
+        blank=True, 
         null=True
         )
 
