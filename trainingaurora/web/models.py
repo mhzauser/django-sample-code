@@ -31,7 +31,7 @@ class City(models.Model):
         null=True
         )
 
-    def get_objects(self):
+    def select_city(self):
         return self.name + 'is created with' + self.population + 'population'
 
     def __str__(self):
@@ -64,7 +64,7 @@ class Tour(models.Model):
     def __str__(self):
         return self.name
 
-    def get_objects(self):
+    def select_tour(self):
         return self.name + 'created with' + str(self.destination)
 
     class Meta:

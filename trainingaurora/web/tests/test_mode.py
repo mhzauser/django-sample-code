@@ -24,15 +24,15 @@ class TourModelTestCase(TestCase):
 
 
 
-    def test_tour_objects(self):
+    def test_select_tour(self):
         tour_one = Tour.objects.get(name='touronetesting')
         tour_two = Tour.objects.get(name='tourtwotesting')
 
         self.assertEqual(
-            tour_one.get_objects() , "tour touronetesting created ..."
+            tour_one.select_tour() , "tour touronetesting created ..."
         )
         self.assertEqual(
-            tour_two.get_objects() , "tour tourtwotesting created ..."
+            tour_two.select_tour() , "tour tourtwotesting created ..."
         )
 
 
@@ -49,15 +49,15 @@ class CityModelTestCase(TestCase):
             name='berlin' , population=43452300
         )
     
-    def test_city_objects(self):
-        city_mamadAbad = City.objects.get(name='mamadAba')
-        city_berlin = City.objects.get(name='berlin')
+    def test_select_city(self):
+        city_mamadAbad = City.objects.filter(name='mamadAbad')
+        city_berlin = City.objects.filter(name='berlin')
 
         self.assertEqual(
-            city_mamadAbad.get_objects() , "city mamamdabad created ..."
+            city_mamadAbad.select_city() , "city mamamdabad created ..."
         )
         self.assertEqual(
-            city_berlin.get_objects() , "city berlin created..."
+            city_berlin.select_city() , "city berlin created..."
         )
 
 
