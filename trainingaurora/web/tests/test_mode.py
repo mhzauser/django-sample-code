@@ -9,17 +9,17 @@ from ..models import City , Tour
 class TourModelTestCase(TestCase):
 
     def setUp(self):
-        cityone = City.objects.create(
+        self.cityone = City.objects.create(
             name = 'cityonefortourtest' , population=1212121
             )
-        citytwo = City.objects.create(
+        self.citytwo = City.objects.create(
             name = 'citytwofortourtest' , population=9988999
         )
         self.tourone = Tour.objects.create(
-            name = 'touronetesting' , destination = cityone
+            name = 'touronetesting' , destination = self.cityone
         )
         self.tourtwo = Tour.objects.create(
-            name = 'tourtwotesting' , destination = citytwo
+            name = 'tourtwotesting' , destination = self.citytwo
         )
 
 
@@ -49,15 +49,15 @@ class CityModelTestCase(TestCase):
             name='berlin' , population=43452300
         )
     
-    def test_select_city(self):
-        city_mamadAbad = City.objects.filter(name='mamadAbad')
+    def test_selectcity(self):
+        city_shahryek = City.objects.filter(name='shahryek')
         city_berlin = City.objects.filter(name='berlin')
 
         self.assertEqual(
-            city_mamadAbad.select_city() , "city mamamdabad created ..."
+            city_shahryek.selectcity() , "city mamamdabad created ..."
         )
         self.assertEqual(
-            city_berlin.select_city() , "city berlin created..."
+            city_berlin.selectcity() , "city berlin created..."
         )
 
 

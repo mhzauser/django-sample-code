@@ -31,7 +31,7 @@ class City(models.Model):
         null=True
         )
 
-    def select_city(self):
+    def selectcity(self):
         return self.name + 'is created with' + self.population + 'population'
 
     def __str__(self):

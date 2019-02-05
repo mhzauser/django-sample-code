@@ -1,4 +1,4 @@
-import json
+'''import json
 from django.test import TestCase , Client
 #from .models import City , Tour
 from ..views import Tourviewset , Cityviewset
@@ -103,3 +103,4 @@ class TourApiTestCase(TestCase):
 
 
 
+'''
