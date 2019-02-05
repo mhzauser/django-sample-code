@@ -25,14 +25,25 @@ class TourModelTestCase(TestCase):
 
 
     def test_select_tour(self):
-        tour_one = Tour.objects.get(name='touronetesting')
-        tour_two = Tour.objects.get(name='tourtwotesting')
+        cityone = City.objects.create(
+            name = 'cityonefortourtest' , population=1212121
+            )
+        citytwo = City.objects.create(
+            name = 'citytwofortourtest' , population=9988999
+        )   
+        tour_one = Tour.objects.create(
+            name = 'touronetesting' , destination = self.cityone
+        )
+        tour_two = Tour.objects.create(
+            name = 'tourtwotesting' , destination = self.citytwo
+        )
+
 
         self.assertEqual(
-            tour_one.select_tour() , "tour touronetesting created ..."
+            tour_one.name , 'touronetesting'
         )
         self.assertEqual(
-            tour_two.select_tour() , "tour tourtwotesting created ..."
+            tour_two.name , 'tourtwotesting'
         )
 
 
@@ -41,23 +52,21 @@ class TourModelTestCase(TestCase):
 
 class CityModelTestCase(TestCase):
 
-    def setUp(self):
-        City.objects.create(
-            name='mamadAbad' , population=1969
+
+    def test_selectcity(self):
+        city_shahryek = City.objects.create(
+            name='shahryek' , population=1969
         )
-        City.objects.create(
+        
+        city_berlin = City.objects.create(
             name='berlin' , population=43452300
         )
-    
-    def test_selectcity(self):
-        city_shahryek = City.objects.filter(name='shahryek')
-        city_berlin = City.objects.filter(name='berlin')
 
         self.assertEqual(
-            city_shahryek.selectcity() , "city mamamdabad created ..."
+            city_shahryek.name , 'shahryek'
         )
         self.assertEqual(
-            city_berlin.selectcity() , "city berlin created..."
+            city_berlin.name , 'berlin'
         )
 
 
