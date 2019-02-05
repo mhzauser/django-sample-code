@@ -25,18 +25,10 @@ class TourModelTestCase(TestCase):
 
 
     def test_select_tour(self):
-        cityone = City.objects.create(
-            name = 'cityonefortourtest' , population=1212121
-            )
-        citytwo = City.objects.create(
-            name = 'citytwofortourtest' , population=9988999
-        )   
-        tour_one = Tour.objects.create(
-            name = 'touronetesting' , destination = self.cityone
-        )
-        tour_two = Tour.objects.create(
-            name = 'tourtwotesting' , destination = self.citytwo
-        )
+        cityone = self.cityone
+        citytwo = self.citytwo
+        tour_one = self.tourone
+        tour_two = self.tourtwo
 
 
         self.assertEqual(

@@ -7,7 +7,7 @@ from django.urls import reverse
 from rest_framework.test import APIRequestFactory
 
 
-factory = APIRequestFactory()
+
 client = Client(SERVER_NAME='localhost')
 
 
@@ -15,14 +15,6 @@ client = Client(SERVER_NAME='localhost')
 #view test 
 class CityApiTestCase(TestCase):
     
-    def setUp(self):
-
-        self.cityone = {
-
-        }
-        self.citytwo = {
-
-        }
 
     def test_api_city(self):
         
@@ -30,7 +22,8 @@ class CityApiTestCase(TestCase):
 class TourApiTestCase(TestCase):
 
 # how testing for id
-    def setUp(self):
+
+    def test_api_tour(self):
 
         self.tourone = {
             "name": "Apitourtestingone",
@@ -43,11 +36,7 @@ class TourApiTestCase(TestCase):
             "destination": {
                 "id": 2,
             }
-        }
-
-
-    def test_api_tour(self):
-        
+        }        
 
 #class TourModelTestCase(TestCase):
 #
