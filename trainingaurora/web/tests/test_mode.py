@@ -45,14 +45,17 @@ class TourModelTestCase(TestCase):
 class CityModelTestCase(TestCase):
 
 
-    def test_selectcity(self):
-        city_shahryek = City.objects.create(
+    def setUp(self):
+        self.cityshahryek = City.objects.create(
             name='shahryek' , population=1969
         )
-        
-        city_berlin = City.objects.create(
+        self.berlin = City.objects.create(
             name='berlin' , population=43452300
         )
+    def test_selectcity(self):
+        city_shahryek = self.cityshahryek
+        
+        city_berlin = self.berlin
 
         self.assertEqual(
             city_shahryek.name , 'shahryek'
