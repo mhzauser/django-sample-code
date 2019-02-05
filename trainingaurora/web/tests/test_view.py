@@ -16,17 +16,25 @@ client = Client(SERVER_NAME='localhost')
 class CityApiTestCase(TestCase):
     
     def setUp(self):
-
+        self.cityone = City.objects.create(
+            name='apicitytestone' , population=201
+        )
+        self.citytwo = City.objects.create(
+            name='apicitytesttwo' , population=200
+        )
 
     def test_api_city(self):
+        cityone = self.cityone
+        citytwo = self.citytwo
+
         
 
 class TourApiTestCase(TestCase):
 
 # how testing for id
     def setUp(self):
-
         
+
     def test_api_tour(self):
 
         self.tourone = {
