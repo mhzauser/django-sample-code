@@ -1,4 +1,4 @@
-'''import json
+import json
 from django.test import TestCase , Client
 #from .models import City , Tour
 from ..views import Tourviewset , Cityviewset
@@ -9,12 +9,14 @@ from rest_framework.test import APIRequestFactory
 
 
 client = Client(SERVER_NAME='localhost')
-
+    
 
 
 #view test 
 class CityApiTestCase(TestCase):
     
+    def setUp(self):
+
 
     def test_api_city(self):
         
@@ -22,7 +24,9 @@ class CityApiTestCase(TestCase):
 class TourApiTestCase(TestCase):
 
 # how testing for id
+    def setUp(self):
 
+        
     def test_api_tour(self):
 
         self.tourone = {
@@ -92,4 +96,3 @@ class TourApiTestCase(TestCase):
 
 
 
-'''
