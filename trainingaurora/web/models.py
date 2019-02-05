@@ -31,8 +31,6 @@ class City(models.Model):
         null=True
         )
 
-    def selectcity(self):
-        return self.name + 'is created with' + self.population + 'population'
 
     def __str__(self):
         return self.name
@@ -64,8 +62,7 @@ class Tour(models.Model):
     def __str__(self):
         return self.name
 
-    def select_tour(self):
-        return self.name + 'created with' + str(self.destination)
+   
 
     class Meta:
         verbose_name=_("tour")
