@@ -4,6 +4,7 @@ from django.contrib import admin
 from .views import Cityviewset ,Tourviewset
 from rest_framework.routers import DefaultRouter
 
+
 #router.register(r'destination' , views.Destinationviewset)
 
 
