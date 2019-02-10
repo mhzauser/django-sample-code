@@ -15,12 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url , include
 from django.contrib import admin
-from rest_framework.documentation import include_docs_urls
+from rest_framework_docs.views import DRFDocsView
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^app/' , include('web.urls')),
     url(r'^api-auth/', include('rest_framework.urls')),
-    url(r'^docs/' , include_docs_urls(title='Tour API')),
+     url(r'^docs/', include('rest_framework_docs.urls')),
 ]
