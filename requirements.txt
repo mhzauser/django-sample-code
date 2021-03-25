@@ -20,7 +20,7 @@ pkg-resources==0.0.0
 psycopg2==2.7.3.2
 Pygments==2.2.0
 pytz==2018.9
-PyYAML==3.13
+PyYAML==5.4
 requests==2.21.0
 simplejson==3.16.0
 uritemplate==3.0.0
